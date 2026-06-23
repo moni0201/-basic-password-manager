@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💜 Violet Vault - Secure Password Manager</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>💜 Violet Vault</h1>
+
+    <p class="subtitle">
+        Secure Password Manager
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="website"
+            placeholder="🌐 Website Name"
+            required
+        >
+
+        <input
+            type="text"
+            name="username"
+            placeholder="👤 Username / Email"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            placeholder="🔒 Password"
+            required
+        >
+
+        <button type="submit">
+            Save Password
+        </button>
+
+    </form>
+
+    <h2>Saved Accounts</h2>
+
+    <table>
+
+        <tr>
+            <th>Website</th>
+            <th>Username</th>
+        </tr>
+
+        {% for item in passwords %}
+        <tr>
+            <td>{{ item.website }}</td>
+            <td>{{ item.username }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
